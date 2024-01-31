@@ -1,7 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 import { response } from "express";
 import fs from "fs"
-import { fileURLToPath } from "url";
+// import { fileURLToPath } from "url";
 
 
 cloudinary.config({
@@ -14,7 +14,7 @@ const uploadOnCloudinary = async (localFilePath) => {
     try {
         if(!localFilePath) return null 
         //upload the file on cloudinary
-        cloudinary.uploader.upload(localFilePath, {
+        const response=cloudinary.uploader.upload(localFilePath, {
             resource_type: "auto"
         })
         //file has bee uploaded successfully
